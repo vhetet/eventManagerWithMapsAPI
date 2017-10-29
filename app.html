@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Project 2</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="library/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="library/jquery.timepicker.js"></script>
+	<script type="text/javascript" src="library/jquery.dreamalert.js"></script>
+	<script type="text/javascript" src="library/jquery.splitter.js"></script>
+	
+	<link type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+	<link type="text/css" href="library/jquery.dreamalert.css" media="screen" rel="stylesheet" />
+	<link type="text/css" href="library/jquery-ui.min.css" rel="stylesheet">	
+	<link type="text/css" href="css/app.css" rel="stylesheet" />
+	<link type="text/css" href="library/jquery.timepicker.css" rel="stylesheet" />
+
+	<style>
+	  body {
+	    margin: 0;
+	    padding: 0;
+	    background-color:#FFFFFF;
+	    color:#fff;
+	  }
+	  body {
+	    padding:0px;
+	  }
+	  a {
+	  	color: #E6E6E6;
+	  }
+	  #leftPane {
+	    width: 0px;
+	  }
+	  #topPane {
+	    height: 0px;
+	  }
+	  .well {
+	  	background-color:#2C1A50;
+	  	margin: 10px;
+	  }
+	  .modal {
+	  	color: #000000;
+	  }
+	  .container {
+	  	background-color: #A4A4A4;
+	  	width: 100%;
+	  }
+	  h1 {
+	  	text-align: center;
+	  }
+	</style>
+</head>
+<body>
+		
+	<div class="container">
+		<h1>Project 2: Event Manager</h1>
+	</div> 
+
+	<div id="body">
+		<div id="left">
+			<div class="well">
+				<div  id="intro">
+					<h3>How it works</h3>
+					<p>The inteface is divided between the textual part and the map, you can resize those panel with bar in the middle.</p>
+					<h4>New Markers</h4>
+					<p>To create an event you had to "right-click" on the map at the place you want the event to be and then click on the marker that appeared. A dialog box will allow you to set the details of the events and then save it.</p>
+					<p>The new markers are the green markers. You can create as many event marker as you want, but they won't but if you want to keep them ypou have to save them by clicking on them. Once saved they will appear as a saved event.</p>
+					<p>You can delete the new events at any time but the button "Delete new markers" at the top of the map.</p>
+					<h4>Saved Events</h4>
+					<p>The saved events can be seen in the list on the left and as marker on the map. They are the blue markers.</p>
+					<p>You can see the details of a saved event by clicking on the marker or on the evnet name in the list. The details are displayed at the bottom of the left panel, below the list of events.</p>
+				</div>
+			</div>
+			<div class="well">
+				<div  id="list-wrapper"></div>
+			</div>
+			<div class="well">
+				<div  id="detail"></div>
+			</div>
+		</div>
+		<div class="row" style="width: 50%; height: 100%; position: absolute;">
+			<div id="map"></div>
+		</div>
+	</div>
+	
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">New Event</h4>
+				</div>
+				<div class="modal-body">
+					<table id="form">
+						<tr class="hidden">
+							<td>Coordinates: </td>
+							<td><input id="coordinates" type="text" disabled></input></td>
+						</tr>
+						<tr>
+							<td>Name: </td>
+							<td><input id="name" type="text"></input></td>
+						</tr>
+						<tr>
+							<td>Type: </td>
+							<td><input id="type" type="text"></input></td>
+						</tr>
+						<tr>
+							<td>Description: </td>
+							<td><textarea id="description" rows="8"></textarea></td>
+						</tr>
+						<tr>
+							<td>Start date: </td>
+							<td><input id="date" type="text" class="datepicker"></input></td>
+						</tr>
+						<tr>
+							<td>Start time: </td>
+							<td><input id="startTime" type="text" class="timepicker"></input></td>
+						</tr>
+						<tr>
+							<td>End time: </td>
+							<td><input id="endTime" type="text" class="timepicker"></input></td>
+						</tr>
+					</table>
+					<input id="key"></input>
+
+				</div>
+				<div class="modal-footer">
+					<button id="add-btn" class="btn btn-default clearForm">Add</button>
+					<button id="save-btn" class="btn btn-default clearForm">Edit</button>
+					<button id="cancel" class="btn btn-default clearForm" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY-v7VPP62mQYNhE9AnDrhJoDva_7Piqo&callback=initMap"></script>
+   	<script type="text/javascript" src="javascript/db.js"></script>
+	<script type="text/javascript" src="javascript/app.js"></script>
+    <script type="text/javascript" src="javascript/layout.js"></script>
+    <script type="text/javascript" src="javascript/map.js"></script>
+</body>
+</html>
+
